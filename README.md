@@ -1,7 +1,8 @@
 # labo03 - Classes
 
 ### Contributors
-* Carvalho Bruno
+* Basset Nils
+* Lange Yanik
 * Gallay David
 
 ### Language

@@ -1,9 +1,9 @@
 /*
 -----------------------------------------------------------------------------------
 Laboratory  : labo_03
-File        : labo_03_Carvalho_bruno_gallay_david.cpp
-Author(s)   : Bruno Carvalho et David Gallay
-Date        : 8.03.2020
+File        : labo_03_basset_nils_lange_yanik_gallay_david.cpp
+Author(s)   : Basset Nils, Lange Yannik et Gallay David
+Date        : 26.03.2020
 
 Purpose     : Prove the good working of classes defined in others files.
 Remark(s)   :
