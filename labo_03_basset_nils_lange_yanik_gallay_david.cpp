@@ -1,28 +1,23 @@
-/*
------------------------------------------------------------------------------------
-Laboratory  : labo_03
-File        : labo_03_basset_nils_lange_yanik_gallay_david.cpp
-Author(s)   : Basset Nils, Lange Yannik et Gallay David
-Date        : 26.03.2020
-
-Purpose     : Prove the good working of classes defined in others files.
-Remark(s)   :
-                There is the github repository:
-                https://github.com/dgheig/Ba2-labo03
-
-Compiler    : g++ 7.4.0
------------------------------------------------------------------------------------*/
 #include <iostream>
+#include "Rotor.h"
+#include "Enigma.h"
 #include <cstdlib>
-#include "src/date.h"
 
 using namespace std;
 
-#define WAIT_ENTER while(cin.get()!='\n')
-
 int main() {
+    Rotor rot1("I", "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+    Rotor rot2("II", "AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
+    Rotor rot3("III", "BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
+    Rotor rot4("IV", "ESOVPZJAYQUIRHXLNFTGKDCMWB", 'J');
+    Rotor rot5("V", "VZBRGITYUPSDNHLXAWMJQOFECK", 'Z');
+    Reflector ref1("UKW-A", "EJMZALYXVBWFCRQUONTSPIKHGD");
+    Reflector ref2("UKW-B", "YRUHQSLDPXNGOKMIEBFZCWVJAT");
+    Reflector ref3("UKW-C", "FVPJIAOYEDRZXWGCTKUQSBNMHL");
 
-    cout << "Please, press <ENTER> to end the program" << endl;
-    WAIT_ENTER;
+
+    Enigma e1(rot2, 'C', rot4, 'K', rot1, 'M', ref2);
+    cout << e1.EncryptMsg("CLZJVMUOAQAGFQJSMOYQLPLCTN");
+
     return EXIT_SUCCESS;
 }
