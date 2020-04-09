@@ -14,13 +14,21 @@ Compiler    : g++ 7.4.0
 -----------------------------------------------------------------------------------*/
 #include <iostream>
 #include <cstdlib>
-#include "src/date.h"
+#include "src/rotor.h"
+#include "src/enigma_machine.h"
 
 using namespace std;
 
 #define WAIT_ENTER while(cin.get()!='\n')
 
 int main() {
+    EnigmaMachine enigma ({rotor_I, rotor_II, rotor_III});
+    
+    cout << enigma.press('A') << endl;
+    cout << enigma.press('A') << endl;
+    cout << enigma.press('A') << endl;
+    cout << enigma.press('A') << endl;
+    cout << enigma.press('A') << endl;
 
     cout << "Please, press <ENTER> to end the program" << endl;
     WAIT_ENTER;

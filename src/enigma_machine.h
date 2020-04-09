@@ -12,8 +12,9 @@ class EnigmaMachine {
         std::string encrypt(std::string text);
 
     private:
+        void rotateFirstRotor();
         std::vector<Rotor> _rotors;
-}
+};
 
 
 #endif // ENIGMA_MACHINE_H

@@ -6,23 +6,22 @@
 class Rotor {
 
     public:
-        Rotor(std::string match, unsigned rotation = 0): _match(match), _rotation(rotation) {}
+        Rotor(std::string match, char notch = 'A', unsigned rotation = 0);
+        Rotor(std::string match, char notch, char position);
         
-        char translate(char c) { // 'A' < c < 'Z'
-            if( c < 'A' or c > 'Z')
-                return c; // We do not handle characters that are not letters
-            size_t index = (int(c) - int('A') + _rotation) % 26;
-            return _match[index];
-        }
+        char translate(char c);
 
-        void rotate() {
-
-        }
+        bool rotate(); // return true if notch is passed
 
     private:
+        char _notch; // rotor I, notch Q 	If rotor steps from Q to R, the next rotor is advanced
         unsigned _rotation;
         std::string _match;
-}
+};
+
+extern Rotor rotor_I;
+extern Rotor rotor_II;
+extern Rotor rotor_III;
 
 
 #endif // ROTOR_H
