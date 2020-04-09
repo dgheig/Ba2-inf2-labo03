@@ -17,6 +17,7 @@ add_executable(
     labo_03_basset_nils_lange_yanik_gallay_david.cpp
     src/utilities.cpp src/utilities.h
     src/rotor.cpp src/rotor.h
+    src/reflector.cpp src/reflector.h
     src/enigma_machine.cpp src/enigma_machine.h
 )
 

@@ -7,11 +7,11 @@
 #endif
 #include <iostream>
 
-EnigmaMachine::EnigmaMachine(Rotor reflector, std::vector<Rotor> rotors): _reflector(reflector), _rotors(rotors) {
+Enigma::Enigma(Rotor reflector, std::vector<Rotor> rotors): _reflector(reflector), _rotors(rotors) {
 
 }
 
-char EnigmaMachine::press(char c) {
+char Enigma::press(char c) {
 
     #ifdef DEBUG
         std::cout << "receive: " << c << std::endl;
@@ -40,14 +40,14 @@ char EnigmaMachine::press(char c) {
     return c;
 }
 
-void EnigmaMachine::rotateFirstRotor() {
+void Enigma::rotateFirstRotor() {
     bool rotate = true;
     for(size_t index = 0; index < _rotors.size() and rotate; ++index) {
         rotate = _rotors[index].rotate();
     }
 }
 
-std::string EnigmaMachine::encrypt(const std::string& text) {
+std::string Enigma::encrypt(const std::string& text) {
     std::string crypted;
     for(char c: text) {
         crypted.push_back(press(c));
@@ -56,7 +56,7 @@ std::string EnigmaMachine::encrypt(const std::string& text) {
 }
 
 
-void EnigmaMachine::reset() {
+void Enigma::reset() {
     for(auto& rotor: _rotors) {
         rotor.reset();
     }

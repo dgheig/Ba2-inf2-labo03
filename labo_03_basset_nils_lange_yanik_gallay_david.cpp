@@ -22,7 +22,7 @@ using namespace std;
 #define WAIT_ENTER while(cin.get()!='\n')
 
 int main() {
-    EnigmaMachine enigma (reflector_B, {rotor_I, rotor_II, rotor_III});
+    Enigma enigma (reflector_B, {rotor_I, rotor_II, rotor_III});
     
     std::string s = "TEST";
     std::string crypted = enigma.encrypt(s);

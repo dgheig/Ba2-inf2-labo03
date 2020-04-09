@@ -1,13 +1,14 @@
-#ifndef ENIGMA_MACHINE_H
-#define ENIGMA_MACHINE_H
+#ifndef ENIGMA_H
+#define ENIGMA_H
 
 #include <vector>
 #include "rotor.h"
+#include "reflector.h"
 
-class EnigmaMachine {
+class Enigma {
 
     public:
-        EnigmaMachine(Rotor reflector, std::vector<Rotor> rotors);
+        Enigma(Reflector reflector, std::vector<Rotor> rotors);
         char press(char c);
         std::string encrypt(const std::string& text);
         void reset();
@@ -19,4 +20,4 @@ class EnigmaMachine {
 };
 
 
-#endif // ENIGMA_MACHINE_H
+#endif // ENIGMA_H

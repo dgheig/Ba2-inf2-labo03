@@ -65,5 +65,3 @@ int Rotor::getRotation() {
 const Rotor rotor_I("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 'A');
 const Rotor rotor_II ("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E', 'A');
 const Rotor rotor_III ("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V', 'A');
-
-const Rotor reflector_B("YRUHQSLDPXNGOKMIEBFZCWVJAT");

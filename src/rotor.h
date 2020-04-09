@@ -32,7 +32,4 @@ extern const Rotor rotor_II;
 extern const Rotor rotor_III;
 
 
-extern const Rotor reflector_B;
-
-
 #endif // ROTOR_H
