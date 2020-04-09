@@ -15,6 +15,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 add_executable(
     labo_03_basset_nils_lange_yanik_gallay_david
     labo_03_basset_nils_lange_yanik_gallay_david.cpp
+    src/utilities.cpp src/utilities.h
     src/rotor.cpp src/rotor.h
     src/enigma_machine.cpp src/enigma_machine.h
 )

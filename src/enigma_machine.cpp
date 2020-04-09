@@ -1,5 +1,7 @@
 #include "enigma_machine.h"
 
+// #define DEBUG
+
 #ifdef DEBUG
 #include <iostream>
 #endif
