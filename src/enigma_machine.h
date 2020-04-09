@@ -7,13 +7,14 @@
 class EnigmaMachine {
 
     public:
-        EnigmaMachine(std::vector<Rotor> rotors);
+        EnigmaMachine(Rotor reflector, std::vector<Rotor> rotors);
         char press(char c);
         std::string encrypt(std::string text);
 
     private:
         void rotateFirstRotor();
         std::vector<Rotor> _rotors;
+        Rotor _reflector;
 };
 
 
