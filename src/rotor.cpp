@@ -10,12 +10,17 @@
 #endif
 
 
-Rotor::Rotor(std::string match, char notch, int rotation): _match(match), _notch(notch), _rotation(rotation) {
+Rotor::Rotor(std::string match, char notch, int rotation): _match(match), _notch(notch), _rotation(rotation), _initial_rotation(rotation) {
 
 }
 
 Rotor::Rotor(std::string match, char notch, char position): Rotor(match, notch, charToInt(position)) {
 
+}
+
+
+void Rotor::reset() {
+    _rotation = _initial_rotation;
 }
 
 char Rotor::translate(char c) { // 'A' <= c <= 'Z'

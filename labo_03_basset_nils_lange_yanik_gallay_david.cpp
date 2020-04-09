@@ -24,11 +24,12 @@ using namespace std;
 int main() {
     EnigmaMachine enigma (reflector_B, {rotor_I, rotor_II, rotor_III});
     
-    cout << enigma.press('A') << endl;
-    cout << enigma.press('A') << endl;
-    cout << enigma.press('A') << endl;
-    cout << enigma.press('A') << endl;
-    cout << enigma.press('A') << endl;
+    std::string s = "TEST";
+    std::string crypted = enigma.encrypt(s);
+    cout << s << std::endl;
+    cout << crypted << std::endl;
+    enigma.reset();
+    cout << enigma.encrypt(crypted) << std::endl;
 
     cout << "Please, press <ENTER> to end the program" << endl;
     WAIT_ENTER;

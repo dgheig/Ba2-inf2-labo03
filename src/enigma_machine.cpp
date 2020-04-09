@@ -5,6 +5,7 @@
 #ifdef DEBUG
 #include <iostream>
 #endif
+#include <iostream>
 
 EnigmaMachine::EnigmaMachine(Rotor reflector, std::vector<Rotor> rotors): _reflector(reflector), _rotors(rotors) {
 
@@ -46,9 +47,17 @@ void EnigmaMachine::rotateFirstRotor() {
     }
 }
 
-std::string EnigmaMachine::encrypt(std::string text) {
+std::string EnigmaMachine::encrypt(const std::string& text) {
     std::string crypted;
     for(char c: text) {
-        crypted += press(c);
+        crypted.push_back(press(c));
+    }
+    return crypted;
+}
+
+
+void EnigmaMachine::reset() {
+    for(auto& rotor: _rotors) {
+        rotor.reset();
     }
 }

@@ -9,7 +9,8 @@ class EnigmaMachine {
     public:
         EnigmaMachine(Rotor reflector, std::vector<Rotor> rotors);
         char press(char c);
-        std::string encrypt(std::string text);
+        std::string encrypt(const std::string& text);
+        void reset();
 
     private:
         void rotateFirstRotor();
