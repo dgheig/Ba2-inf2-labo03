@@ -18,7 +18,7 @@ add_executable(
     src/utilities.cpp src/utilities.h
     src/rotor.cpp src/rotor.h
     src/reflector.cpp src/reflector.h
-    src/enigma_machine.cpp src/enigma_machine.h
+    src/enigma.cpp src/enigma.h
 )
 
 # add_executable(testDiffDate tests/testDiffDate.cpp src/date.cpp src/date.h)

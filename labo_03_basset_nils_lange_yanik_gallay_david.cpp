@@ -15,7 +15,7 @@ Compiler    : g++ 7.4.0
 #include <iostream>
 #include <cstdlib>
 #include "src/rotor.h"
-#include "src/enigma_machine.h"
+#include "src/enigma.h"
 
 using namespace std;
 
@@ -24,7 +24,7 @@ using namespace std;
 int main() {
     Enigma enigma (reflector_B, {rotor_I, rotor_II, rotor_III});
     
-    std::string s = "TEST";
+    std::string s = "VIVELINFORMATIQUEALAHEIGVD";
     std::string crypted = enigma.encrypt(s);
     cout << s << std::endl;
     cout << crypted << std::endl;

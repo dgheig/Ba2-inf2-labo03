@@ -1,4 +1,4 @@
-#include "enigma_machine.h"
+#include "enigma.h"
 
 // #define DEBUG
 
