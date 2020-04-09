@@ -61,3 +61,7 @@ void Enigma::reset() {
         rotor.reset();
     }
 }
+
+Rotors& Enigma::getRotors() {
+    return _rotors;
+}

@@ -5,6 +5,8 @@
 #include "rotor.h"
 #include "reflector.h"
 
+typedef std::vector<Rotor> Rotors;
+
 class Enigma {
 
     public:
@@ -12,10 +14,11 @@ class Enigma {
         char press(char c);
         std::string encrypt(const std::string& text);
         void reset();
+        Rotors& getRotors();
 
     private:
         void rotateFirstRotor();
-        std::vector<Rotor> _rotors;
+        Rotors _rotors;
         Reflector _reflector;
 };
 

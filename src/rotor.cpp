@@ -27,16 +27,26 @@ char Rotor::translate(char c) { // 'A' <= c <= 'Z'
     if(c < 'A' or c > 'Z')
         return c; // We do not handle characters that are not letters
     char mappingChar = WithRotation(c);
+    #ifdef DEBUG
+        std::cout << "receive: " << c << std::endl
+                  << "mappingChar: " << mappingChar << std::endl
+                  << std::endl;
+    #endif
     return WithoutRotation(_match.translate(mappingChar));
 }
 
 char Rotor::backwardTranslate(char c) {
     if(c < 'A' or c > 'Z')
         return c; // We do not handle characters that are not letters
-    char charForMapping = WithRotation(c);
+    char mappingChar = WithRotation(c);
+    #ifdef DEBUG
+        std::cout << "receive: " << c << std::endl
+                  << "mappingChar: " << mappingChar << std::endl
+                  << std::endl;
+    #endif
 
     // if != string::npos
-    return WithoutRotation(_match.backwardTranslate(charForMapping));
+    return WithoutRotation(_match.backwardTranslate(mappingChar));
 }
 
 bool Rotor::rotate() {
@@ -59,6 +69,7 @@ int Rotor::WithoutRotation(int index) {
 }
 
 char Rotor::WithRotation(char c) {
+    return intToChar(WithRotation(charToInt(c)));
 }
 
 char Rotor::WithoutRotation(char c) {
