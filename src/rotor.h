@@ -2,6 +2,7 @@
 #define ROTOR_H
 
 #include <string>
+#include "reflector.h"
 
 class Rotor {
 
@@ -20,9 +21,14 @@ class Rotor {
         int getRotation();
 
     private:
+        int WithRotation(int c);
+        int WithoutRotation(int c);
+        char WithRotation(char c);
+        char WithoutRotation(char c);
+        
         char _notch; // rotor I, notch Q 	If rotor steps from Q to R, the next rotor is advanced
         int _rotation;
-        std::string _match;
+        Reflector _match;
 
         int _initial_rotation;
 };

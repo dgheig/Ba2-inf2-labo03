@@ -7,7 +7,7 @@
 #endif
 #include <iostream>
 
-Enigma::Enigma(Rotor reflector, std::vector<Rotor> rotors): _reflector(reflector), _rotors(rotors) {
+Enigma::Enigma(Reflector reflector, std::vector<Rotor> rotors): _reflector(reflector), _rotors(rotors) {
 
 }
 

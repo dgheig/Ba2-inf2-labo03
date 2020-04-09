@@ -24,33 +24,23 @@ void Rotor::reset() {
 }
 
 char Rotor::translate(char c) { // 'A' <= c <= 'Z'
-    if( c < 'A' or c > 'Z')
+    if(c < 'A' or c > 'Z')
         return c; // We do not handle characters that are not letters
-    size_t index = mod((charToInt(c) + _rotation), 26);
-    return intToChar(mod(charToInt(_match[index]) - _rotation, 26));
+    char mappingChar = WithRotation(c);
+    return WithoutRotation(_match.translate(mappingChar));
 }
 
 char Rotor::backwardTranslate(char c) {
-    if( c < 'A' or c > 'Z')
+    if(c < 'A' or c > 'Z')
         return c; // We do not handle characters that are not letters
-    char charForMapping = intToChar(mod(charToInt(c) + _rotation, 26));
-    int mappingIndex = _match.find(charForMapping);
-    int index = mod(mappingIndex - _rotation, 26);
-
-    #ifdef DEBUG
-        std::cout << "got char: "                   << c
-                  << " found mappingIndex: "        << mappingIndex
-                  << " with char for mapping: "     << charForMapping
-                  << " | found index for result: "  << index
-                  << std::endl;
-    #endif
+    char charForMapping = WithRotation(c);
 
     // if != string::npos
-    return intToChar(index);
+    return WithoutRotation(_match.backwardTranslate(charForMapping));
 }
 
 bool Rotor::rotate() {
-    bool notch_passed = _match[_rotation] == _notch;
+    bool notch_passed = _match.translate(intToChar(_rotation)) == _notch;
     _rotation = mod(_rotation + 1, 26);
     return notch_passed;
 }
@@ -59,6 +49,22 @@ bool Rotor::rotate() {
 int Rotor::getRotation() {
     return _rotation;
 }
+
+int Rotor::WithRotation(int index) {
+    return mod(index + _rotation, 26);
+}
+
+int Rotor::WithoutRotation(int index) {
+    return mod(index - _rotation, 26);
+}
+
+char Rotor::WithRotation(char c) {
+}
+
+char Rotor::WithoutRotation(char c) {
+    return intToChar(WithoutRotation(charToInt(c)));
+}
+
 
 
 

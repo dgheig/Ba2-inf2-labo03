@@ -16,7 +16,7 @@ class Enigma {
     private:
         void rotateFirstRotor();
         std::vector<Rotor> _rotors;
-        Rotor _reflector;
+        Reflector _reflector;
 };
 
 

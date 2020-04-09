@@ -2,11 +2,20 @@
 #define REFLECTOR_H
 
 #include <string>
-#include "rotor.h"
 
-typedef Rotor Reflector;
+class Reflector {
 
-extern const Rotor reflector_B;
+    public:
+        Reflector(std::string match);
+        
+        char translate(char c);
+        char backwardTranslate(char c);
+
+    private:
+        std::string _match;
+};
+
+extern const Reflector reflector_B;
 
 
 #endif // REFLECTOR_H

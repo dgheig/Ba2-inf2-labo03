@@ -4,7 +4,7 @@
 
 int charToInt(char c);
 char intToChar(int index);
-int mod(int a, int b);
+unsigned mod(int a, int b);
 
 
 #endif
