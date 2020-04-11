@@ -14,7 +14,7 @@ Reflector::Reflector(std::string match): _match(match) {
 
 }
 
-char Reflector::translate(char c) { // 'A' <= c <= 'Z'
+char Reflector::translate(char c) const { // 'A' <= c <= 'Z'
     if(!isupper(c))
         return c; // We do not handle characters that are not uppercase letters
     #ifdef DEBUG
@@ -23,7 +23,7 @@ char Reflector::translate(char c) { // 'A' <= c <= 'Z'
     return _match[charToInt(c)];
 }
 
-char Reflector::backwardTranslate(char c) {
+char Reflector::backwardTranslate(char c) const {
     if(!isupper(c))
         return c; // We do not handle characters that are not letters
     #ifdef DEBUG

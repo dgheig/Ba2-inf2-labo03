@@ -56,23 +56,34 @@ bool Rotor::rotate() {
 }
 
 
-int Rotor::getRotation() {
+void Rotor::setRotation(int rotation) {
+    _rotation = mod(rotation, 26);
+}
+
+void Rotor::setRotation(char rotation) {
+    if(islower(rotation))
+        rotation = (char)toupper(rotation);
+    if(isupper(rotation))
+        setRotation(charToInt(rotation));
+}
+
+int Rotor::getRotation() const {
     return _rotation;
 }
 
-int Rotor::WithRotation(int index) {
+int Rotor::WithRotation(int index) const {
     return mod(index + _rotation, 26);
 }
 
-int Rotor::WithoutRotation(int index) {
+int Rotor::WithoutRotation(int index) const {
     return mod(index - _rotation, 26);
 }
 
-char Rotor::WithRotation(char c) {
+char Rotor::WithRotation(char c) const {
     return intToChar(WithRotation(charToInt(c)));
 }
 
-char Rotor::WithoutRotation(char c) {
+char Rotor::WithoutRotation(char c) const {
     return intToChar(WithoutRotation(charToInt(c)));
 }
 

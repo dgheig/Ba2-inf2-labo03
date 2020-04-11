@@ -8,8 +8,8 @@ class Reflector {
     public:
         Reflector(std::string match);
         
-        char translate(char c);
-        char backwardTranslate(char c);
+        char translate(char c) const;
+        char backwardTranslate(char c) const;
 
     private:
         std::string _match;

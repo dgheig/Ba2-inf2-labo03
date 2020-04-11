@@ -18,17 +18,19 @@ class Rotor {
 
         bool rotate(); // return true if notch is passed
 
-        int getRotation();
+        void setRotation(int rotation);
+        void setRotation(char rotation);
+        int getRotation() const;
 
     private:
-        int WithRotation(int c);
-        int WithoutRotation(int c);
-        char WithRotation(char c);
-        char WithoutRotation(char c);
+        int WithRotation(int c) const;
+        int WithoutRotation(int c) const;
+        char WithRotation(char c) const;
+        char WithoutRotation(char c) const;
         
+        Reflector _match;
         char _notch; // rotor I, notch Q 	If rotor steps from Q to R, the next rotor is advanced
         int _rotation;
-        Reflector _match;
 
         int _initial_rotation;
 };
