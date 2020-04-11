@@ -1,4 +1,4 @@
-# labo03 - Classes
+# labo03 - Enigma
 
 ### Contributors
 * Basset Nils
