@@ -6,7 +6,10 @@ Author(s)   : Basset Nils, Lange Yannik et Gallay David
 Date        : 26.03.2020
 
 Purpose     : Declare class Enigma
-Remark(s)   :
+Remark(s)   : The enigma machine normally use 3 rotors but could use more
+              Since the user should have full access on the rotors,
+              We chose to return the reference on the vector of rotors.
+              
 
 Compiler    : MinGW-g++ 6.3.0 and g++ 7.4.0
 -----------------------------------------------------------------------------------*/
@@ -34,7 +37,7 @@ class Enigma {
         * @param c character we want to encrypt
         * @brief Return the encrypted input if it is an alphabetic character, else return the character
         */
-        char press(char c);
+        char encrypt(char c);
 
         /*!
         * @param text text
@@ -64,7 +67,7 @@ class Enigma {
         * @param c character we want to encrypt
         * @brief Return the encrypted input if it is an uppercase character, else return the character
         */
-        char _press(char c);
+        char _encrypt(char c);
 
         /*!
         * @brief rotate the first rotor and the following while the notch is passed

@@ -24,15 +24,15 @@ Enigma::Enigma(Reflector reflector, std::vector<Rotor> rotors): _reflector(refle
 
 }
 
-char Enigma::press(char c) {
+char Enigma::encrypt(char c) {
 
     if(islower(c))
-        return (char)tolower(_press((char)toupper(c)));
+        return (char)tolower(_encrypt((char)toupper(c)));
 
-    return _press(c);
+    return _encrypt(c);
 }
 
-char Enigma::_press(char c) {
+char Enigma::_encrypt(char c) {
 
     #ifdef DEBUG
         std::cout << "receive: " << c << std::endl;
@@ -71,7 +71,7 @@ void Enigma::rotateFirstRotor() {
 std::string Enigma::encrypt(const std::string& text) {
     std::string crypted;
     for(char c: text) {
-        crypted.push_back(press(c));
+        crypted.push_back(encrypt(c));
     }
     return crypted;
 }
