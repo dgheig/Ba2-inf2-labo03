@@ -77,16 +77,18 @@ std::string Enigma::encrypt(const std::string& text) {
 }
 
 
-void Enigma::reset() {
+Enigma& Enigma::reset() {
     for(auto& rotor: _rotors) {
         rotor.reset();
     }
+    return *this;
 }
 
 Rotors& Enigma::getRotors() {
     return _rotors;
 }
 
-void Enigma::setReflector(const Reflector& reflector) {
+Enigma& Enigma::setReflector(const Reflector& reflector) {
     _reflector = reflector;
+    return *this;
 }

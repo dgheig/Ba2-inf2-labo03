@@ -33,8 +33,9 @@ Rotor::Rotor(std::string match, char notch, char position): Rotor(match, notch, 
 }
 
 
-void Rotor::reset() {
+Rotor& Rotor::reset() {
     _rotation = _initial_rotation;
+    return *this;
 }
 
 char Rotor::translate(char c) const { // 'A' <= c <= 'Z'
@@ -70,15 +71,17 @@ bool Rotor::rotate() {
 }
 
 
-void Rotor::setRotation(int rotation) {
+Rotor& Rotor::setRotation(int rotation) {
     _rotation = alphaIndex(rotation);
+    return *this;
 }
 
-void Rotor::setRotation(char rotation) {
+Rotor& Rotor::setRotation(char rotation) {
     if(islower(rotation))
         rotation = (char)toupper(rotation);
     if(isupper(rotation))
         setRotation(alphaIndex(rotation));
+    return *this;
 }
 
 int Rotor::getRotation() const {

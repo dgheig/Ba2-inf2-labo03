@@ -44,8 +44,9 @@ class Enigma {
 
         /*!
         * @brief Reset the enigma machine to its initial configuration
+        * @return Reference on the enigma object
         */
-        void reset();
+        Enigma& reset();
 
         /*!
         * @brief get the rotors, this is the way to change them
@@ -54,8 +55,9 @@ class Enigma {
 
         /*!
         * @brief set the reflector of the enigma machine
+        * @return Reference on the enigma object
         */
-        void setReflector(const Reflector& reflector);
+        Enigma& setReflector(const Reflector& reflector);
 
     private:
         /*!
