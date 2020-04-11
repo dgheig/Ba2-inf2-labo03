@@ -12,6 +12,10 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
+if(DEBUG)
+    add_definitions(-DDEBUG)
+endif()
+
 add_executable(
     labo_03_basset_nils_lange_yanik_gallay_david
     labo_03_basset_nils_lange_yanik_gallay_david.cpp

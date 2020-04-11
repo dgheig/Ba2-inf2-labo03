@@ -29,7 +29,7 @@ char Reflector::backwardTranslate(char c) const {
     #ifdef DEBUG
         std::cout << "reflector receive: " << c << std::endl;
     #endif
-    int index = _match.find(c);
+    int index = (int)_match.find(c);
     // if index != string::npos
     return indexToChar(index);
 }
