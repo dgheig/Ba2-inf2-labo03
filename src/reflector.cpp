@@ -1,3 +1,16 @@
+/*
+-----------------------------------------------------------------------------------
+Laboratory  : labo_03
+File        : reflector.cpp
+Author(s)   : Basset Nils, Lange Yannik et Gallay David
+Date        : 26.03.2020
+
+Purpose     : Function definition for header reflector.h
+Remark(s)   :
+
+Compiler    : MinGW-g++ 6.3.0 and g++ 7.4.0
+-----------------------------------------------------------------------------------*/
+
 #include "reflector.h"
 
 #include "utilities.h"

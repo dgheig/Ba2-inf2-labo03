@@ -1,3 +1,16 @@
+/*
+-----------------------------------------------------------------------------------
+Laboratory  : labo_03
+File        : rotor.h
+Author(s)   : Basset Nils, Lange Yannik et Gallay David
+Date        : 26.03.2020
+
+Purpose     : Declare class Rotor
+Remark(s)   :
+
+Compiler    : MinGW-g++ 6.3.0 and g++ 7.4.0
+-----------------------------------------------------------------------------------*/
+
 #ifndef ROTOR_H
 #define ROTOR_H
 
@@ -27,6 +40,10 @@ class Rotor {
         */
         char backwardTranslate(char c) const;
 
+        /*!
+        * @brief Rotate the rotor
+        * @return true if the notch is passed, else return false
+        */
         bool rotate(); // return true if notch is passed
 
         void setRotation(int rotation);

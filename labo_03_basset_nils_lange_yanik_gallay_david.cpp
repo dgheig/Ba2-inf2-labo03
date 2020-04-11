@@ -10,7 +10,7 @@ Remark(s)   :
                 There is the github repository:
                 https://github.com/dgheig/Ba2-labo03
 
-Compiler    : g++ 7.4.0
+Compiler    : MinGW-g++ 6.3.0 and g++ 7.4.0
 -----------------------------------------------------------------------------------*/
 #include <iostream>
 #include <cstdlib>
