@@ -4,23 +4,37 @@
 #include <string>
 #include "reflector.h"
 
+const char DEFAULT_NOTCH = 'A';
+
+/*!
+ * @class Rotor
+ * @brief Representation of a rotor of the enigma machine
+ */
 class Rotor {
 
     public:
-        Rotor(std::string match, char notch = 'A', int rotation = 0);
+        Rotor(std::string match, char notch = DEFAULT_NOTCH, int rotation = 0);
         Rotor(std::string match, char notch, char position);
 
         // Rotor& operator=(const Rotor& rotor);
         void reset();
         
-        char translate(char c);
-        char backwardTranslate(char c);
+        char translate(char c) const;
+
+        /*!
+        * @param c character to backward translate
+        * @brief This is the inverse function of translate, also only handle uppercase characters
+        */
+        char backwardTranslate(char c) const;
 
         bool rotate(); // return true if notch is passed
 
         void setRotation(int rotation);
         void setRotation(char rotation);
         int getRotation() const;
+
+        bool setNotch(char notch);
+        char getNotch() const;
 
     private:
         int WithRotation(int c) const;

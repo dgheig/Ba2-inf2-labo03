@@ -5,11 +5,15 @@ unsigned mod(int a, int b)
     int r = a % b;
     return r < 0 ? r + b : r;
 }
-    
-int charToInt(char c) { // 'A' <= c <= 'Z'
+
+unsigned alphaIndex(int a) {
+    return mod(a, 26);
+}
+
+int alphaIndex(char c) {
     return c - 'A';
 }
 
-char intToChar(int index) { // 0 <= index < 26
+char indexToChar(int index) { // 0 <= index < 26
     return char( index + 'A');
 }

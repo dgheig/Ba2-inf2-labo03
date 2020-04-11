@@ -2,9 +2,10 @@
 #define UTILITIES_H
 
 
-int charToInt(char c);
-char intToChar(int index);
+char indexToChar(int index);
 unsigned mod(int a, int b);
+unsigned alphaIndex(int a);
+int alphaIndex(char c);
 
 
 #endif

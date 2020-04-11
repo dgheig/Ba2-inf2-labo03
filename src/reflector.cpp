@@ -20,7 +20,7 @@ char Reflector::translate(char c) const { // 'A' <= c <= 'Z'
     #ifdef DEBUG
         std::cout << "reflector receive: " << c << std::endl;
     #endif
-    return _match[charToInt(c)];
+    return _match[alphaIndex(c)];
 }
 
 char Reflector::backwardTranslate(char c) const {
@@ -31,7 +31,7 @@ char Reflector::backwardTranslate(char c) const {
     #endif
     int index = _match.find(c);
     // if index != string::npos
-    return intToChar(index);
+    return indexToChar(index);
 }
 
 const Reflector reflector_B("YRUHQSLDPXNGOKMIEBFZCWVJAT");

@@ -2,6 +2,7 @@
 
 #include "utilities.h"
 #include <string>
+#include <cctype>
 
 // #define DEBUG
 
@@ -10,11 +11,11 @@
 #endif
 
 
-Rotor::Rotor(std::string match, char notch, int rotation): _match(match), _notch(notch), _rotation(rotation), _initial_rotation(rotation) {
-
+Rotor::Rotor(std::string match, char notch, int rotation): _match(match), _rotation(rotation), _initial_rotation(rotation) {
+    setNotch(notch);
 }
 
-Rotor::Rotor(std::string match, char notch, char position): Rotor(match, notch, charToInt(position)) {
+Rotor::Rotor(std::string match, char notch, char position): Rotor(match, notch, alphaIndex(position)) {
 
 }
 
@@ -23,8 +24,8 @@ void Rotor::reset() {
     _rotation = _initial_rotation;
 }
 
-char Rotor::translate(char c) { // 'A' <= c <= 'Z'
-    if(c < 'A' or c > 'Z')
+char Rotor::translate(char c) const { // 'A' <= c <= 'Z'
+    if(!isupper(c))
         return c; // We do not handle characters that are not letters
     char mappingChar = WithRotation(c);
     #ifdef DEBUG
@@ -35,8 +36,8 @@ char Rotor::translate(char c) { // 'A' <= c <= 'Z'
     return WithoutRotation(_match.translate(mappingChar));
 }
 
-char Rotor::backwardTranslate(char c) {
-    if(c < 'A' or c > 'Z')
+char Rotor::backwardTranslate(char c) const {
+    if(!isupper(c))
         return c; // We do not handle characters that are not letters
     char mappingChar = WithRotation(c);
     #ifdef DEBUG
@@ -50,41 +51,59 @@ char Rotor::backwardTranslate(char c) {
 }
 
 bool Rotor::rotate() {
-    bool notch_passed = _match.translate(intToChar(_rotation)) == _notch;
-    _rotation = mod(_rotation + 1, 26);
+    bool notch_passed = _match.translate(indexToChar(_rotation)) == _notch;
+    _rotation = alphaIndex(_rotation + 1);
     return notch_passed;
 }
 
 
 void Rotor::setRotation(int rotation) {
-    _rotation = mod(rotation, 26);
+    _rotation = alphaIndex(rotation);
 }
 
 void Rotor::setRotation(char rotation) {
     if(islower(rotation))
         rotation = (char)toupper(rotation);
     if(isupper(rotation))
-        setRotation(charToInt(rotation));
+        setRotation(alphaIndex(rotation));
 }
 
 int Rotor::getRotation() const {
     return _rotation;
 }
 
+
+bool Rotor::setNotch(char notch) {
+    if(islower(notch))
+        notch = (char)toupper(notch);
+
+    if(isupper(notch)) {
+        _notch = notch;
+        return true;
+    }
+    
+    _notch = DEFAULT_NOTCH;
+    return false;
+}
+
+char Rotor::getNotch() const {
+    return _notch;
+}
+
 int Rotor::WithRotation(int index) const {
-    return mod(index + _rotation, 26);
+    return alphaIndex(index + _rotation);
 }
 
 int Rotor::WithoutRotation(int index) const {
-    return mod(index - _rotation, 26);
+    return alphaIndex(index - _rotation);
 }
 
 char Rotor::WithRotation(char c) const {
-    return intToChar(WithRotation(charToInt(c)));
+    return indexToChar(WithRotation(alphaIndex(c)));
 }
 
 char Rotor::WithoutRotation(char c) const {
-    return intToChar(WithoutRotation(charToInt(c)));
+    return indexToChar(WithoutRotation(alphaIndex(c)));
 }
 
 
