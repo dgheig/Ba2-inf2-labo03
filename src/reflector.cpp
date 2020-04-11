@@ -2,6 +2,7 @@
 
 #include "utilities.h"
 #include <string>
+#include <cctype>
 
 // #define DEBUG
 
@@ -14,8 +15,8 @@ Reflector::Reflector(std::string match): _match(match) {
 }
 
 char Reflector::translate(char c) { // 'A' <= c <= 'Z'
-    if( c < 'A' or c > 'Z')
-        return c; // We do not handle characters that are not letters
+    if(!isupper(c))
+        return c; // We do not handle characters that are not uppercase letters
     #ifdef DEBUG
         std::cout << "reflector receive: " << c << std::endl;
     #endif
@@ -23,7 +24,7 @@ char Reflector::translate(char c) { // 'A' <= c <= 'Z'
 }
 
 char Reflector::backwardTranslate(char c) {
-    if( c < 'A' or c > 'Z')
+    if(!isupper(c))
         return c; // We do not handle characters that are not letters
     #ifdef DEBUG
         std::cout << "reflector receive: " << c << std::endl;

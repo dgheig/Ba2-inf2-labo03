@@ -5,13 +5,21 @@
 #ifdef DEBUG
 #include <iostream>
 #endif
-#include <iostream>
+#include <cctype>
 
 Enigma::Enigma(Reflector reflector, std::vector<Rotor> rotors): _reflector(reflector), _rotors(rotors) {
 
 }
 
 char Enigma::press(char c) {
+
+    if(islower(c))
+        return (char)tolower(_press((char)toupper(c)));
+
+    return _press(c);
+}
+
+char Enigma::_press(char c) {
 
     #ifdef DEBUG
         std::cout << "receive: " << c << std::endl;
@@ -64,4 +72,8 @@ void Enigma::reset() {
 
 Rotors& Enigma::getRotors() {
     return _rotors;
+}
+
+void Enigma::setReflector(const Reflector& reflector) {
+    _reflector = reflector;
 }

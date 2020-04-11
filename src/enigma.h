@@ -15,11 +15,14 @@ class Enigma {
         std::string encrypt(const std::string& text);
         void reset();
         Rotors& getRotors();
+        void setReflector(const Reflector& reflector);
 
     private:
+        char _press(char c);
         void rotateFirstRotor();
-        Rotors _rotors;
+        
         Reflector _reflector;
+        Rotors _rotors;
 };
 
 
