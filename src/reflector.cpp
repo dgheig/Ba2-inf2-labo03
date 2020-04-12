@@ -47,4 +47,8 @@ char Reflector::backwardTranslate(char c) const {
     return indexToChar(index);
 }
 
-const Reflector reflector_B("YRUHQSLDPXNGOKMIEBFZCWVJAT");
+std::string Reflector::getWiring() const {
+    return _match;
+}
+
+const Reflector REFLECTOR_B("YRUHQSLDPXNGOKMIEBFZCWVJAT");

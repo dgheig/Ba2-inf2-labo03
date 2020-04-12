@@ -24,11 +24,11 @@ Compiler    : MinGW-g++ 6.3.0 and g++ 7.4.0
 #endif
 
 
-Rotor::Rotor(std::string match, char notch, int rotation): _match(match), _rotation(rotation), _initial_rotation(rotation) {
+Rotor::Rotor(const std::string& match, char notch, int rotation): _match(match), _rotation(rotation), _initial_rotation(rotation) {
     setNotch(notch);
 }
 
-Rotor::Rotor(std::string match, char notch, char position): Rotor(match, notch, alphaIndex(position)) {
+Rotor::Rotor(const std::string& match, char notch, char position): Rotor(match, notch, alphaIndex(position)) {
 
 }
 
@@ -88,6 +88,22 @@ int Rotor::getRotation() const {
     return _rotation;
 }
 
+Rotor& Rotor::setInitialRotation(int rotation) {
+    _initial_rotation = alphaIndex(rotation);
+    return *this;
+}
+
+Rotor& Rotor::setInitialRotation(char rotation) {
+    if(islower(rotation))
+        rotation = (char)toupper(rotation);
+    if(isupper(rotation))
+        setInitialRotation(alphaIndex(rotation));
+    return *this;
+}
+
+int Rotor::getInitialRotation() const {
+    return _initial_rotation;
+}
 
 bool Rotor::setNotch(char notch) {
     if(islower(notch))
@@ -104,6 +120,10 @@ bool Rotor::setNotch(char notch) {
 
 char Rotor::getNotch() const {
     return _notch;
+}
+
+std::string Rotor::getWiring() const {
+    return _match.getWiring();
 }
 
 int Rotor::WithRotation(int index) const {
@@ -125,6 +145,6 @@ char Rotor::WithoutRotation(char c) const {
 
 
 
-const Rotor rotor_I("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 'A');
-const Rotor rotor_II ("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E', 'A');
-const Rotor rotor_III ("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V', 'A');
+const Rotor ROTOR_I("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 'A');
+const Rotor ROTOR_II ("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E', 'A');
+const Rotor ROTOR_III ("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V', 'A');

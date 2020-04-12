@@ -31,7 +31,7 @@ typedef std::vector<Rotor> Rotors;
 class Enigma {
 
     public:
-        Enigma(Reflector reflector, std::vector<Rotor> rotors);
+        Enigma(Reflector reflector, const Rotors& rotors);
 
         /*!
         * @param c character we want to encrypt

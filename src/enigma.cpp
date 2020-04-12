@@ -20,7 +20,7 @@ Compiler    : MinGW-g++ 6.3.0 and g++ 7.4.0
 #endif
 #include <cctype>
 
-Enigma::Enigma(Reflector reflector, std::vector<Rotor> rotors): _reflector(reflector), _rotors(rotors) {
+Enigma::Enigma(Reflector reflector, const Rotors& rotors): _reflector(reflector), _rotors(rotors) {
 
 }
 

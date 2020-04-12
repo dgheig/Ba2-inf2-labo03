@@ -38,3 +38,25 @@ in the root folder:
 cd doc && mkdir -p doxy && doxygen Doxyfile && make -C doxy/latex && cp doxy/latex/refman.pdf doc.pdf
 ```
 
+
+
+
+
+## Usage
+
+```c++
+Enigma enigma (REFLECTOR_B, {
+    Rotor(ROTOR_I).setInitialRotation('C'),
+    ROTOR_II,
+    ROTOR_III
+});
+
+enigma.reset(); // To set all rotors to their initial rotation
+
+std::string encrypted = enigma.encrypt("my message");
+```
+
+NB:
+
+1. pre-existing rotors and reflectors are const and meant to be copied.
+2. the machine handle lowercase as well as uppercase, other characters are ignored

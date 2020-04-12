@@ -50,11 +50,16 @@ class Reflector {
         */
         char backwardTranslate(char c) const;
 
+        /*!
+        * @return Return the wiring of the reflector
+        */
+        std::string getWiring() const;
+
     private:
         std::string _match;
 };
 
-extern const Reflector reflector_B;
+extern const Reflector REFLECTOR_B;
 
 
 #endif // REFLECTOR_H

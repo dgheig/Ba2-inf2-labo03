@@ -28,8 +28,8 @@ const char DEFAULT_NOTCH = 'A';
 class Rotor {
 
     public:
-        Rotor(std::string match, char notch = DEFAULT_NOTCH, int rotation = 0);
-        Rotor(std::string match, char notch, char position);
+        Rotor(const std::string& match, char notch = DEFAULT_NOTCH, int rotation = 0);
+        Rotor(const std::string&, char notch, char position);
 
         /*!
         * @brief Reset the rotor to its initial states
@@ -71,6 +71,25 @@ class Rotor {
         int getRotation() const;
 
         /*!
+        * @param rotation the initial rotation of the rotor
+        * @brief Set the initial rotation of the rotor
+        * @return Reference on the rotor
+        */
+        Rotor& setInitialRotation(int rotation);
+
+        /*!
+        * @param rotation the initial rotation of the rotor
+        * @brief Set the initial rotation of the rotor
+        * @return Reference on the rotor
+        */
+        Rotor& setInitialRotation(char rotation);
+        
+        /*!
+        * @return The initial rotation of the rotor
+        */
+        int getInitialRotation() const;
+
+        /*!
         * @brief Set the notch if it is valid
         * @return true if the notch is valid, else false
         */
@@ -80,6 +99,11 @@ class Rotor {
         * @return Return the notch of the rotor
         */
         char getNotch() const;
+
+        /*!
+        * @return Return the wiring of the rotor
+        */
+        std::string getWiring() const;
 
     private:
         /*!
@@ -125,9 +149,9 @@ class Rotor {
         int _initial_rotation;
 };
 
-extern const Rotor rotor_I;
-extern const Rotor rotor_II;
-extern const Rotor rotor_III;
+extern const Rotor ROTOR_I;
+extern const Rotor ROTOR_II;
+extern const Rotor ROTOR_III;
 
 
 #endif // ROTOR_H
