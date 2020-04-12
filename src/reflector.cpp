@@ -43,8 +43,7 @@ char Reflector::backwardTranslate(char c) const {
         std::cout << "reflector receive: " << c << std::endl;
     #endif
     int index = (int)_match.find(c);
-    // if index != string::npos
-    return indexToChar(index);
+    return indexToChar(index); // handle case index == string::npos
 }
 
 std::string Reflector::getWiring() const {

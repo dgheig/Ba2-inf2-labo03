@@ -36,6 +36,9 @@ Compiler    : MinGW-g++ 6.3.0 and g++ 7.4.0
 class Reflector {
 
     public:
+        /*!
+        * @param match string containing all uppercase letter once and only once, otherwise, the behaviour is undefined
+        */
         Reflector(std::string match);
 
         /*!

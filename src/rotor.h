@@ -28,7 +28,18 @@ const char DEFAULT_NOTCH = 'A';
 class Rotor {
 
     public:
+        /*!
+        * @param match string containing all uppercase letter once and only once, otherwise, the behaviour is undefined
+        * @param notch notch of the rotor, if rotor steps from _notch to another character, the next rotor must be advanced
+        * @param rotation initial rotation/position of the rotor
+        */
         Rotor(const std::string& match, char notch = DEFAULT_NOTCH, int rotation = 0);
+        
+        /*!
+        * @param match string containing all uppercase letter once and only once, otherwise, the behaviour is undefined
+        * @param notch notch of the rotor, if rotor steps from _notch to another character, the next rotor must be advanced
+        * @param rotation initial rotation/position of the rotor
+        */
         Rotor(const std::string&, char notch, char position);
 
         /*!
