@@ -19,14 +19,14 @@ unsigned mod(int a, int b)
     return r < 0 ? r + b : r;
 }
 
-unsigned alphaIndex(int a) {
-    return mod(a, 26);
+unsigned alphaIndex(int index) {
+    return mod(index, 26);
 }
 
 int alphaIndex(char c) {
-    return c - 'A';
+    return alphaIndex(c - 'A');
 }
 
 char indexToChar(int index) { // 0 <= index < 26
-    return char( index + 'A');
+    return char(alphaIndex(index) + 'A');
 }

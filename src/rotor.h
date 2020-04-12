@@ -7,6 +7,8 @@ Date        : 26.03.2020
 
 Purpose     : Declare class Rotor
 Remark(s)   : _rotation is a int because it is oriented
+              About setting _match, _notch, _initial_rotation as const,
+              See Remarks in reflector.h
 
 Compiler    : MinGW-g++ 6.3.0 and g++ 7.4.0
 -----------------------------------------------------------------------------------*/

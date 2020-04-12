@@ -6,7 +6,20 @@ Author(s)   : Basset Nils, Lange Yannik et Gallay David
 Date        : 26.03.2020
 
 Purpose     : Declare class Reflector
-Remark(s)   :
+Remark(s)   : About setting _match as const,
+              It is a choice, not an omission
+
+              https://www.reddit.com/r/cpp/comments/8wbeom/coding_guideline_avoid_const_member_variables/
+              https://stackoverflow.com/questions/38155699/are-there-advantages-of-using-const-member-variable-in-c
+
+              Speaking with my own words, those objects are designed as copyable and movable.
+              Since all explicit functions are const qualified, the constness of the string is granted
+              except for assignation, what we want.
+
+              Breaking the const with a cast is a bad practice and sign of bad design.
+
+              An other choice of implementation would be to not make copies and only hold references,
+              using static allocation. In this case, defining member as const would have sense.
 
 Compiler    : MinGW-g++ 6.3.0 and g++ 7.4.0
 -----------------------------------------------------------------------------------*/
