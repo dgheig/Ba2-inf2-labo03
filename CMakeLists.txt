@@ -15,6 +15,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 if(DEBUG)
     add_definitions(-DDEBUG)
 endif()
+if(DEBUG_ENIGMA)
+    add_definitions(-DDEBUG_ENIGMA)
+endif()
 
 add_executable(
     labo_03_basset_nils_lange_yanik_gallay_david

@@ -65,7 +65,7 @@ char Rotor::backwardTranslate(char c) const {
 }
 
 bool Rotor::rotate() {
-    bool notch_passed = _match.translate(indexToChar(_rotation)) == _notch;
+    bool notch_passed = indexToChar(_rotation) == _notch;
     _rotation = alphaIndex(_rotation + 1);
     return notch_passed;
 }

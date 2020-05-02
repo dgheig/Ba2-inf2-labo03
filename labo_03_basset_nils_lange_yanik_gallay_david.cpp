@@ -26,10 +26,12 @@ int main() {
     
     std::string s = "VIVELINFORMATIQUEALAHEIGVD";
     std::string crypted = enigma.encrypt(s);
+    std::string expected = "EQCDTAFRFJXWBOHFOCPQGRVYMA";
     cout << s << std::endl;
     cout << crypted << std::endl;
-    enigma.reset();
-    cout << enigma.encrypt(crypted) << std::endl;
+    cout << expected << std::endl;
+    // enigma.reset();
+    // cout << enigma.encrypt(crypted) << std::endl;
 
     cout << "Please, press <ENTER> to end the program" << endl;
     WAIT_ENTER;

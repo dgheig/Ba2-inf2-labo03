@@ -15,6 +15,12 @@ Compiler    : MinGW-g++ 6.3.0 and g++ 7.4.0
 
 // #define DEBUG
 
+#ifndef DEBUG
+#ifdef DEBUG_ENIGMA
+#define DEBUG
+#endif
+#endif
+
 #ifdef DEBUG
 #include <iostream>
 #endif
@@ -34,29 +40,34 @@ char Enigma::encrypt(char c) {
 
 char Enigma::_encrypt(char c) {
 
-    #ifdef DEBUG
-        std::cout << "receive: " << c << std::endl;
-    #endif
 
     rotateFirstRotor();
+
+    #ifdef DEBUG
+        std::cout << c;
+    #endif
     for(auto& rotor: _rotors) {
         c = rotor.translate(c);
         #ifdef DEBUG
-            std::cout << "translated to: " << c << std::endl;
+            std::cout << " -> " << c;
         #endif
     }
 
     c = _reflector.translate(c);
     #ifdef DEBUG
-        std::cout << "reflected to: " << c << std::endl;
+            std::cout << " -> " << c;
     #endif
 
     for(size_t index = _rotors.size(); index > 0 ; --index) {
-        c = _rotors[index - 1].backwardTranslate(c) ;
+        c = _rotors[index - 1].backwardTranslate(c);
         #ifdef DEBUG
-            std::cout << "backwardTranslated to: " << c << std::endl;
+            std::cout << " -> " << c;
         #endif
     }
+    #ifdef DEBUG
+        std::cout << std::endl;
+    #endif
+
 
     return c;
 }
@@ -65,6 +76,10 @@ void Enigma::rotateFirstRotor() {
     bool rotate = true;
     for(size_t index = 0; index < _rotors.size() and rotate; ++index) {
         rotate = _rotors[index].rotate();
+        
+        #ifdef DEBUG
+            std::cout << "Rotate rotor: " << index << std::endl;
+        #endif
     }
 }
 
